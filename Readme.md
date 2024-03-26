@@ -1,7 +1,7 @@
 # Presentation
 
 This project is a Go server that can be used to demonstrate an implementation of **CUSTOM** option of the **AuthorizationPolicy**.
-The tutorial is available here: TODO: the link to medium
+The tutorial is available [here](https://medium.com/@marc.guerrini/diy-istio-custom-authorization-policy-ecf1927e498a).
 
 This Go module exposes the gRPC interface invoked by **Istio** to validate requests (relies on https://github.com/envoyproxy/go-control-plane/)
 
