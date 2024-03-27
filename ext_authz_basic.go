@@ -87,8 +87,8 @@ func (s *extAuthzServerV3) Check(_ context.Context, request *authv3.CheckRequest
 	log.Printf("[gRPC v3] Check")
 	attrs := request.GetAttributes()
 
-	afklATHeader, contains := attrs.GetRequest().GetHttp().GetHeaders()[testedHeaderName]
-	log.Printf("%v: %v", testedHeaderName, afklATHeader)
+	atHeader, contains := attrs.GetRequest().GetHttp().GetHeaders()[testedHeaderName]
+	log.Printf("%v: %v", testedHeaderName, atHeader)
 	if contains {
 
 		return s.allow(request), nil
@@ -128,7 +128,7 @@ func (s *ExtAuthzServer) startGRPC(address string, wg *sync.WaitGroup) {
 
 func (s *ExtAuthzServer) run(grpcAddr string) {
 	var wg sync.WaitGroup
-	wg.Add(2)
+	wg.Add(1)
 	go s.startGRPC(grpcAddr, &wg)
 	wg.Wait()
 }
